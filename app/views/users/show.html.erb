@@ -1,0 +1,18 @@
+<div class="contents row">
+  <p><%= @nickname %>さんの投稿一覧</p>
+  <% @tweets.each do |tweet| %>
+    <%= render partial: "tweets/tweet", locals: { tweet: tweet } %>
+  <% end %>
+  <%= paginate(@tweets) %>
+</div>
+
+<hr>
+
+<div class="contents row">
+  <p><%= @nickname %>さんの投稿一覧</p>
+  <% @comments.each do |comment| %>
+    <li>
+    <%= comment.text %>
+     <%= link_to "   →Talk Page", "/tweets/#{comment.tweet_id}", method: :get %>
+  <% end %>
+</div>

@@ -1,0 +1,20 @@
+<!-- 今日のツイート -->
+<div class="changeday"><%= image_tag "folk_nife.svg", :size => '20' %> 今日のランチ </div>
+<div class="contents row">
+  <% @todaytweets.each do |tweet| %>
+    <%= render partial: "tweet", locals: { tweet: tweet } %>
+    <%= paginate(@todaytweets) %>
+  <% end %>
+</div>
+
+<hr style="width: 50%;">
+<!-- 過去のツイート -->
+<div class="changeday"><%= image_tag "folk_nife.svg", :size => '20' %> 昨日までのランチ </div>
+<div class="contents row opa">
+  <% @tweets.each do |tweet| %>
+    <%= render partial: "tweet", locals: { tweet: tweet } %>
+  <% end %>
+  <%= paginate(@tweets) %>
+</div>
+
+
